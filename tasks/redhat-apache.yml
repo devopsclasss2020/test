@@ -1,0 +1,16 @@
+---
+- name: "Redhat - Apache Installation"
+  yum:
+    name: httpd
+    state: present
+        
+- name: "Redhat - Test Page Creation"
+  copy:
+    content: "<h1> Anaible Test pahe </h1>"
+    dest: /var/www/html/index.html
+        
+- name: "Redhat - Restart/enable Apache"
+  service:
+    name: httpd
+    state: restarted
+    enabled: true

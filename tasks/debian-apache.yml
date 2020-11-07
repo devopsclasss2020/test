@@ -1,0 +1,16 @@
+---
+- name: "Debian - Apache Installation"
+  yum:
+    name: apache2
+    state: present
+        
+- name: "Debian - Test Page Creation"
+  copy:
+    content: "<h1> Anaible Test pahe </h1>"
+    dest: /var/www/html/index.html
+        
+- name: "Debian - Restart/enable Apache"
+  service:
+    name: apache2
+    state: restarted
+    enabled: true
